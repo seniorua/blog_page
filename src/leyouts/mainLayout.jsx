@@ -8,7 +8,7 @@ export const MainLayout = () => {
       <header>
         <Header></Header>
       </header>
-      <main>{Outlet}</main>
+      <main>{<Outlet />}</main>
       <footer>
         <Footer></Footer>
       </footer>

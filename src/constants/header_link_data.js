@@ -11,4 +11,8 @@ export const headerLinkData = [
     name: "Contacts",
     href: "/contacts",
   },
+  {
+    name: "login",
+    href: "/login",
+  },
 ];
