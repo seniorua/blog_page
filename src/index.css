@@ -73,11 +73,7 @@ header {
   color: rgb(217, 255, 0);
   text-shadow: 0 5px 10px white;
 }
-/* .link-nav:active {
-  color: rgb(182, 42, 42);
-  text-shadow: none;
 
-} */
 .link-nav.active {
   color: rgb(217, 255, 0);
   text-shadow: 0 5px 10px white;
