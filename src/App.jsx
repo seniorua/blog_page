@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Contacts } from "./pages/Contacts";
-import { Article } from "./pages/Article";
+import { Articles } from "./pages/Articles";
+import { OneArticle } from "./pages/OneArticle";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { MainLayout } from "./leyouts/MainLayout";
 import { LoginLayout } from "./leyouts/LoginLayout";
@@ -14,7 +15,8 @@ export const App = () => {
         <Route path="/" element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/contacts" element={<Contacts />} />
-          <Route path="/articles" element={<Article />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/articles/:id" element={<OneArticle />} />
         </Route>
         <Route path="/login" element={<LoginLayout />}>
           <Route path="/login" element={<Login />} />
@@ -23,4 +25,4 @@ export const App = () => {
       </Routes>
     </>
   );
-};  
+};
