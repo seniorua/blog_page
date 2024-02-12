@@ -10,7 +10,7 @@ export const MainLayout = () => {
       </header>
       <main>{<Outlet />}</main>
       <footer>
-        <Footer></Footer>
+        <Footer>Hello!</Footer>
       </footer>
     </>
   );
