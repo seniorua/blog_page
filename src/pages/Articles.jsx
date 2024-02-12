@@ -1,27 +1,32 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Articles = () => {
   const [articles, setArticles] = useState([]);
+  const navigate = useNavigate();
+
+  const articleLinkClick = (id) => {
+    navigate(`/articles/${id}`, {state: {title: articles[id-1].title, content_text: articles[id-1].content_text}});
+    console.log('go!')
+    console.log('data: ', articles[id-1].title);
+    console.log('text: ', articles[id-1].content_text);
+  }
   console.log("Article rendering");
   useEffect(() => {
     fetch("https://api.slingacademy.com/v1/sample-data/blog-posts")
       .then((data) => data.json())
       .then((data) => {
         setArticles(data.blogs);
-        console.log("Data:", data.blogs);
-        console.log("1:", articles);
       });
-  }, []);
-  console.log("2:", articles);
-
+    }, []);
+    
   return (
     <div className="article-container wrapper">
       <h2>List of articles:</h2>
       <div className="article">
         {articles.map((item) => {
           return (
-            <div className="article-card" id={item.id}>
+            <div className="article-card" key={item.id}>
               <div>
                 <h3>{item.title}</h3>
                 <h4>Theme: {item.category}</h4>
@@ -30,13 +35,13 @@ export const Articles = () => {
               <div>
                 <img src={item.photo_url} alt="" />
               </div>
-              <Link
-                className="linkReact"
+              <div
+                className="link-react"
+                onClick={() => articleLinkClick(item.id)}
                 id={item.id}
-                to={"/articles/" + item.id}
               >
                 <div className="goto">Go to read:</div>
-              </Link>
+              </div>
             </div>
           );
         })}

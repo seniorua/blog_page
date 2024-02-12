@@ -5,8 +5,8 @@ import { Link, Outlet } from "react-router-dom";
 export const LoginLayout = () => {
   return (
     <>
-      <header className="header-inner" style={{color: "white"}}>
-        {<Outlet />}
+      <header style={{color: "white"}}>
+        <div className="header-inner">{<Outlet />}</div>
       </header>
       <main><Link to="/"><h2> Goto Home</h2></Link></main>
       <footer>
