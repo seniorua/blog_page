@@ -8,6 +8,10 @@ export const headerLinkData = [
     href: "/articles",
   },
   {
+    name: "Create Article",
+    href: "/new-article",
+  },
+  {
     name: "Contacts",
     href: "/contacts",
   },
