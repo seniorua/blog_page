@@ -7,8 +7,9 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { MainLayout } from "./leyouts/MainLayout";
 import { LoginLayout } from "./leyouts/LoginLayout";
 import { Login } from "./pages/Login";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
+export const ArticleContext = createContext({});
 export const App = () => {
   const [articles, setArticles] = useState([]);
 
@@ -18,21 +19,26 @@ export const App = () => {
       .then((data) => {
         setArticles(data.blogs);
       });
-    }, []);
+  }, []);
   return (
     <>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/articles" element={<Articles articles={ articles }/>} />
-          <Route path="/articles/:id" element={<OneArticle />} />
-        </Route>
-        <Route path="/login" element={<LoginLayout />}>
-          <Route path="/login" element={<Login />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <ArticleContext.Provider value={{articles, setArticles}}>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route
+              path="/articles"
+              element={<Articles />}
+            />
+            <Route path="/articles/:id" element={<OneArticle />} />
+          </Route>
+          <Route path="/login" element={<LoginLayout />}>
+            <Route path="/login" element={<Login />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </ArticleContext.Provider>
     </>
   );
 };

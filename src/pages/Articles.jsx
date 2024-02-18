@@ -1,21 +1,15 @@
 // import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ArticleContext } from "../App";
 
-export const Articles = ({ articles }) => {
-  // const [articles, setArticles] = useState([]);
+export const Articles = () => {
+  const { articles } = useContext(ArticleContext);
   const navigate = useNavigate();
 
   const articleLinkClick = (id) => {
     navigate(`/articles/${id}`, {state: {title: articles[id-1].title, content_text: articles[id-1].content_text}});
   }
-
-  // useEffect(() => {
-  //   fetch("https://api.slingacademy.com/v1/sample-data/blog-posts")
-  //     .then((data) => data.json())
-  //     .then((data) => {
-  //       setArticles(data.blogs);
-  //     });
-  //   }, []);
     
   return (
     <div className="article-container wrapper">
