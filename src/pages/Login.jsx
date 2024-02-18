@@ -1,5 +1,5 @@
 export const Login = () => {
-  console.log("Login rendering");
+  ("Login rendering");
 
   return (
     <>

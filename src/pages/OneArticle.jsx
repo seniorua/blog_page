@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export const OneArticle = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+  const { state }  = useLocation();
 
   const toArticles = () => {
     navigate("/articles");
@@ -10,14 +10,14 @@ export const OneArticle = () => {
 
   return (
     <div className="one-article wrapper">
-      <h3 onClick={toArticles} style={{ cursor: "pointer", color: "blue" }}>
+      <h4 onClick={toArticles} style={{ cursor: "pointer", color: "blue" }}>
         {"<"} Back to articles
-      </h3>
-      <h1>{location.state.title}</h1>
-      <p>{location.state.content_text}</p>
-      <h3 onClick={toArticles} style={{ cursor: "pointer", color: "blue" }}>
+      </h4>
+      <h1>{state.title}</h1>
+      <p>{state.content_text}</p>
+      <h4 onClick={toArticles} style={{ cursor: "pointer", color: "blue" }}>
         {"<"} Back to articles
-      </h3>
+      </h4>
     </div>
   );
 };

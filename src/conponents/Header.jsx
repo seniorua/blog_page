@@ -3,7 +3,6 @@ import { LinkNav } from "./LinkNav";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
-  console.log("Header rendering");
   return (
     <div className="header-inner">
       <Link to="/">

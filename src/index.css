@@ -30,7 +30,10 @@ header {
   color: rgb(217, 255, 0);
   text-align: center;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .logo h1 {
   position: relative;
@@ -65,7 +68,10 @@ header {
   color: white;
   padding: 10px;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   transition: 0.3s;
 }
 .link-nav:hover {
@@ -145,6 +151,7 @@ main {
   padding: 10px;
   color: black;
   background-color: #ebeba5;
+  border-radius: 20px;
 }
 footer {
   display: flex;
