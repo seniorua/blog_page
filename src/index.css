@@ -171,8 +171,27 @@ footer {
   border-radius: 20px;
 }
 .new-article * {
+  margin: 5px 0;
   padding: 10px;
+  font-size: 16px;
   background-color: transparent;
   box-shadow: none;
   border-style: none;
+  border-radius: 10px;
+}
+
+.create-article-button {
+  border: 3px solid rgb(150, 178, 239);
+  background-color: transparent;
+  
+  color: rgb(73, 72, 72);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+.create-article-button:hover {
+  background-color: #32b83d4b;
+}
+.create-article-button:active {
+  background-color: #32b83dca;
 }
