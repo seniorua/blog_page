@@ -11,12 +11,13 @@ export const NewArticle = () => {
   const creareArticlePress = () => {
     const NewArticle = {
       title: title.current.value,
-      decription: description.current.value,
       category: category.current.value,
-      img: `https://api.slingacademy.com/public/sample-blog-posts/${articles.length}.png`,
+      description: description.current.value,
+      photo_url: `https://api.slingacademy.com/public/sample-blog-posts/${articles.length + 1}.png`,
       content_text: content_text.current.value,
+      id: articles.length + 1,
     }
-    // setArticles(NewArticle);
+    setArticles(prev => [...prev, NewArticle]);
   }
   return (
     <div className="wrapper">
