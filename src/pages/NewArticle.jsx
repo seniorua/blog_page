@@ -1,32 +1,33 @@
-import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { ArticleContext } from "../App";
 
 export const NewArticle = () => {
-  const navigate = useNavigate();
+  const {articles, setArticles } = useContext(ArticleContext);
   const title = useRef(undefined);
-  const content = useRef(undefined);
-  
-  const toArticles = () => {
-    navigate("/");
-  };
+  const description = useRef(undefined);
+  const category = useRef(undefined);
+  const content_text = useRef(undefined);
   
   const creareArticlePress = () => {
-    console.log('title: ', title);
-    console.log('content: ', content);
+    const NewArticle = {
+      title: title.current.value,
+      decription: description.current.value,
+      category: category.current.value,
+      img: `https://api.slingacademy.com/public/sample-blog-posts/${articles.length}.png`,
+      content_text: content_text.current.value,
+    }
+    // setArticles(NewArticle);
   }
   return (
     <div className="wrapper">
       <h1>New Article:</h1><br />
       <div className="new-article">
-        {/* <h3 onClick={toArticles} style={{ cursor: "pointer", color: "blue" }}>
-          {"<"} сделать, чтоб возвращалась на шаг назад
-          {"< "}Home
-        </h3> */}
         <input ref={title} type="text" placeholder="Title" />
-        <input type="text" placeholder="Category" />
-        <input type="text" placeholder="Describtion of article" />
+        <input ref={category} type="text" placeholder="Category" />
+        <input ref={description}  type="text" placeholder="Describtion of article" />
+        {/* <img src="" alt="img" /> */}
         <textarea
-          ref={content}
+          ref={content_text}
           name="content"
           id=""
           cols="30"

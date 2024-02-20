@@ -21,7 +21,7 @@ export const Articles = () => {
               <div>
                 <h3>{article.title}</h3>
                 <h4>Theme: {article.category}</h4>
-                <p>{article.description}</p>
+                <p>{article.description}</p>img
               </div>
               <div>
                 <img src={article.photo_url} alt="" />

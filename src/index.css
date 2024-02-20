@@ -183,7 +183,7 @@ footer {
 .create-article-button {
   border: 3px solid rgb(150, 178, 239);
   background-color: transparent;
-  
+  font-size: 18px;
   color: rgb(73, 72, 72);
   border-radius: 10px;
   cursor: pointer;
@@ -194,4 +194,4 @@ footer {
 }
 .create-article-button:active {
   background-color: #32b83dca;
-}
+} 
