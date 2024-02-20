@@ -1,7 +1,9 @@
 import { useRef, useContext } from "react";
 import { ArticleContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 export const NewArticle = () => {
+  const navigate = useNavigate();
   const {articles, setArticles } = useContext(ArticleContext);
   const title = useRef(undefined);
   const description = useRef(undefined);
@@ -18,6 +20,7 @@ export const NewArticle = () => {
       id: articles.length + 1,
     }
     setArticles(prev => [...prev, NewArticle]);
+    navigate(`/articles/${articles.length + 1}`, {state: {title: title.current.value, content_text: content_text.current.value}})
   }
   return (
     <div className="wrapper">
