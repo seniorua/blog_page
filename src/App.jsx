@@ -7,23 +7,16 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { MainLayout } from "./leyouts/MainLayout";
 import { LoginLayout } from "./leyouts/LoginLayout";
 import { Login } from "./pages/Login";
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
 import { NewArticle } from "./pages/NewArticle";
 
-export const ArticleContext = createContext({});
-export const App = () => {
-  const [articles, setArticles] = useState([]);
 
-  useEffect(() => {
-    fetch("https://api.slingacademy.com/v1/sample-data/blog-posts")
-      .then((data) => data.json())
-      .then((data) => {
-        setArticles(data.blogs);
-      });
-  }, []);
+
+export const ArticleContext = createContext({});
+
+export const App = () => {
   return (
     <>
-      <ArticleContext.Provider value={{articles, setArticles}}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route path="/" element={<Home />} />
@@ -37,7 +30,6 @@ export const App = () => {
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </ArticleContext.Provider>
     </>
   );
 };

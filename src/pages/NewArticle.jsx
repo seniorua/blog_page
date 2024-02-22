@@ -1,10 +1,13 @@
-import { useRef, useContext } from "react";
-import { ArticleContext } from "../App";
+import { useRef } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
+import { addNewArticle } from "../store/slices/articles";
 
 export const NewArticle = () => {
+  const articles = useSelector((state) => state.articlesStore.articles);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
-  const {articles, setArticles } = useContext(ArticleContext);
   const title = useRef(undefined);
   const description = useRef(undefined);
   const category = useRef(undefined);
@@ -19,7 +22,7 @@ export const NewArticle = () => {
       content_text: content_text.current.value,
       id: articles.length + 1,
     }
-    setArticles(prev => [...prev, NewArticle]);
+    dispatch(addNewArticle(NewArticle))
     navigate(`/articles/${articles.length + 1}`, {state: {title: title.current.value, content_text: content_text.current.value}})
   }
   return (
@@ -29,7 +32,6 @@ export const NewArticle = () => {
         <input ref={title} type="text" placeholder="Title" />
         <input ref={category} type="text" placeholder="Category" />
         <input ref={description}  type="text" placeholder="Describtion of article" />
-        {/* <img src="" alt="img" /> */}
         <textarea
           ref={content_text}
           name="content"

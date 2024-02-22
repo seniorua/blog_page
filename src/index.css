@@ -195,3 +195,25 @@ footer {
 .create-article-button:active {
   background-color: #32b83dca;
 } 
+
+.buttons-block {
+  display: flex;
+  gap: 50px;
+  margin: 20px;
+  font-size: 30px;
+  align-items: center;
+}
+.buttons-block .button {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: .3s;
+  user-select: none;
+  cursor: pointer;
+}
+.buttons-block .button:hover {
+  background-color: #ffffff54;
+}
+.buttons-block .button:active {
+  background-color: #ffffffba;
+}
