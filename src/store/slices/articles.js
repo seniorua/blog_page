@@ -1,4 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
+
+export const fetchArticles = createAsyncThunk(
+  'articlesStore/fetchArticle', 
+  async(_, {rejectWithValue}) => {
+    try {
+      const response = await fetch(
+        "https://api.slingacademy.com/v1/sample-data/blog-posts"
+      );
+    } catch (error) {
+      
+    }
+  }
+  );
 
 const initialState = {
   articles: [
